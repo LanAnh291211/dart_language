@@ -1,24 +1,14 @@
-abstract class Abtract {
-    // Creating Abstract Methods
-    void think();
-    void act();
-}
- 
-class AbtractExample extends Abtract{
-    @override
-    void think()
-    {
-        print("Hate");
-    }
- 
-    @override
-    void act()
-    {
-        print("Love");
-    }
-}
-void main() {
-   AbtractExample abtract = new AbtractExample();
-    abtract.think();
-    abtract.act();
+//kiểu liệt kê (kiểu liệt kê thứ tự enumerated) được sử dụng để liệt kê các giá trị hằng số
+enum Weather { 
+
+   dep, 
+   xau, 
+   mua, 
+   gio 
+}  
+void main() { 
+   print(Weather.values); 
+   Weather.values.forEach((v) => print('hôm nay trời: $v, chi so: ${v.index}'));
+   print('trời đẹp: ${Weather.dep}, ${Weather.dep.index}'); 
+   print('trời đẹp chỉ số: ${Weather.values[1]}'); 
 }
