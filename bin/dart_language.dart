@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import 'dart:async';
 
 void createCount() async {
@@ -6,12 +5,6 @@ void createCount() async {
   print(' $count1');
   var count2 = await getCount2();
   print(' $count2');
-=======
-abstract class Abtract { 
-    // Creating Abstract Methods
-    void think();
-    void act();
->>>>>>> Stashed changes
 }
 
 Future<String> getCount1() => Future.delayed(Duration(seconds: 6), () => 'Anh có đánh rơi nhịp nào không :v ');
