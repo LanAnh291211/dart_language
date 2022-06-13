@@ -1,5 +1,6 @@
-//trong vài trường hợp việc tạo 1 class có vẻ dư thừa, thay vì tạo 1 class ta có tạo 1 extension trên(on) 1 kiểu dữ liệu
-
+//trong vài trường hợp việc tạo 1 class có vẻ dư thừa, thay vì tạo 1 class ta có tạo 1 extension 
+//là một cách để thêm chức năng vào các thư viện hiện có
+// extension <'Tên Extension'> on <'Class cần extends'> {}
 extension Extensions on String {
   String concat(String word) => '$this $word';
 
@@ -16,11 +17,11 @@ class Pet {
     print('gaugau');
   }
 }
-
+//class Cat kế thừa class Pet
 class Cat extends Pet {
   // use the 'super' keyword to interact with 
   // the super class of Cat
-  Cat(String name, int age) : super(name, age);
+  Cat(String name, int id) : super(name, id);
   
   void sound() {
     print('meomeo');
@@ -28,14 +29,13 @@ class Cat extends Pet {
   
 }
 
-
+//class Dog kế thừa class Pet
 class Dog extends Pet {
-  // use the 'super' keyword to interact with 
-  // the super class of Cat
-  Dog(String name, int age) : super(name, age);
+  
+  Dog(String name, int id) : super(name, id);
   
   void sound() {
-    print('meo');
+    print('grugru');
   }
   
 }
