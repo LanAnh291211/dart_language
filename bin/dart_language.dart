@@ -1,24 +1,11 @@
-abstract class Abtract {
-    // Creating Abstract Methods
-    void think();
-    void act();
+//sử dụng từ khóa late để khai báo các biến sẽ được khởi tạo sau này
+class Reason {
+  late String lydo;
 }
- 
-class AbtractExample extends Abtract{
-    @override
-    void think()
-    {
-        print("Hate");
-    }
- 
-    @override
-    void act()
-    {
-        print("Love");
-    }
-}
+
 void main() {
-   AbtractExample abtract = new AbtractExample();
-    abtract.think();
-    abtract.act();
+    Reason reason = Reason();
+    reason.lydo = "Nga";
+
+    print(reason.lydo);
 }
