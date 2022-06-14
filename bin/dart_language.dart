@@ -1,24 +1,22 @@
-abstract class Abtract {
-    // Creating Abstract Methods
-    void think();
-    void act();
+class Pet {
+String id;
+String name;
+
+Pet({required this.id, required this.name});
+
+// factory constructor trả về new instance
+factory Pet.fromJson(Map json) {
+return Pet(id : json['id'],
+name : json['name']);
 }
- 
-class AbtractExample extends Abtract{
-    @override
-    void think()
-    {
-        print("Hate");
-    }
- 
-    @override
-    void act()
-    {
-        print("Love");
-    }
 }
-void main() {
-   AbtractExample abtract = new AbtractExample();
-    abtract.think();
-    abtract.act();
+
+void main(){
+
+Map dog = {'id': '1', 'name': 'lu'};
+
+Pet lu = Pet.fromJson(dog);
+print(lu.id);
+print(lu.name);
+
 }
