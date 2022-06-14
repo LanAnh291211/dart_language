@@ -1,53 +1,24 @@
-//trong vài trường hợp việc tạo 1 class có vẻ dư thừa, thay vì tạo 1 class ta có tạo 1 extension 
-//là một cách để thêm chức năng vào các thư viện hiện có
-// extension <'Tên Extension'> on <'Class cần extends'> {}
-extension Extensions on String {
-  String concat(String word) => '$this $word';
-
-  // DOCUMENTATION IS SUPPORTED: Concatenates two strings with a space in between.
-
-}
-class Pet {
-  Pet(this.name, this.id);
-  
-  int id;
-  String name;
-
-  void sound() {
-    print('gaugau');
+// yield Nó được sử dụng để phát ra các giá trị từ trình tạo không đồng bộ hoặc đồng bộ hóa.
+Stream<int> count(int n) async* {
+  for (var i = 1; i <= n; i++) {
+    await Future.delayed(Duration(seconds: 1));
+    yield i;
   }
 }
-//class Cat kế thừa class Pet
-class Cat extends Pet {
-  // use the 'super' keyword to interact with 
-  // the super class of Cat
-  Cat(String name, int id) : super(name, id);
-  
-  void sound() {
-    print('meomeo');
+
+// yield* Nó ủy quyền cuộc gọi đến một trình tạo khác và sau khi trình tạo đó ngừng sản xuất các giá trị, nó sẽ tiếp tục tạo các giá trị của chính nó.
+Stream<int> count1(int n) async* {
+  if (n > 0) {
+    await Future.delayed(Duration(seconds: 3));
+    yield n;
+    yield* count1(n - 1);
   }
-  
 }
 
-//class Dog kế thừa class Pet
-class Dog extends Pet {
-  
-  Dog(String name, int id) : super(name, id);
-  
-  void sound() {
-    print('grugru');
-  }
-  
-}
+ Future.delayed(Duration(seconds: 5));
+// await Future.delayed(Duration(seconds: 5));
+void main() {
+  count(5).forEach(print);
 
-
-main() {
-
-  String one = 'dog';
-  one.concat('cat');
-   var cat = Cat("Miu",1);
-  var dog = Dog("Nick", 2);
-  
-  dog.sound();
-  cat.sound();
+  count1(5).forEach(print);
 }
