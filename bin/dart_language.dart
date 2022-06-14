@@ -22,7 +22,7 @@
  }
  
  class Chicken() {
- 	bool isRunInWater() {
+ 	bool isSwim() {
  		return true;
  	}
  	
@@ -46,5 +46,5 @@
  	myBird.isRun(); // true
  	myBird.isClimb(); // true
  	myBird.isClimb(); // true
- 	myBird.sound(); // This is a ship
+ 	myBird.sound(); // cục tác
  }
