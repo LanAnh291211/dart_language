@@ -1,53 +1,17 @@
-//trong vài trường hợp việc tạo 1 class có vẻ dư thừa, thay vì tạo 1 class ta có tạo 1 extension 
-//là một cách để thêm chức năng vào các thư viện hiện có
-// extension <'Tên Extension'> on <'Class cần extends'> {}
-extension Extensions on String {
-  String concat(String word) => '$this $word';
 
-  // DOCUMENTATION IS SUPPORTED: Concatenates two strings with a space in between.
+import 'package:async/async.dart';
+import 'dart:async';
 
+void main() {
+    var fur3 = new Future<int>(() => 45);
+    Future z = Future.sync(() => print('bla'));
+    print(z);
 }
-class Pet {
-  Pet(this.name, this.id);
-  
-  int id;
-  String name;
+//Future.sync
+// Trả về một tương lai chứa kết quả của việc gọi tính toán ngay lập tức.
 
-  void sound() {
-    print('gaugau');
-  }
-}
-//class Cat kế thừa class Pet
-class Cat extends Pet {
-  // use the 'super' keyword to interact with 
-  // the super class of Cat
-  Cat(String name, int id) : super(name, id);
-  
-  void sound() {
-    print('meomeo');
-  }
-  
-}
+// Nếu gọi tính toán ném, thì tương lai trả về được hoàn thành với lỗi.
 
-//class Dog kế thừa class Pet
-class Dog extends Pet {
-  
-  Dog(String name, int id) : super(name, id);
-  
-  void sound() {
-    print('grugru');
-  }
-  
-}
+// Nếu việc gọi tính toán trả về một Future <T>, thì tương lai đó sẽ được trả về.
 
-
-main() {
-
-  String one = 'dog';
-  one.concat('cat');
-   var cat = Cat("Miu",1);
-  var dog = Dog("Nick", 2);
-  
-  dog.sound();
-  cat.sound();
-}
+// Nếu việc gọi tính toán trả về một giá trị không phải trong tương lai, thì một tương lai được trả về đã được hoàn thành với giá trị đó.
