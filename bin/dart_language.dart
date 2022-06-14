@@ -14,8 +14,12 @@ Stream<int> count1(int n) async* {
     yield* count1(n - 1);
   }
 }
+Future<> myTypedFuture(int id, int duration) async {
+  await Future.delayed(Duration(seconds: 5));
+  print('Delay complete for Future $id');
+}
 
- Future.delayed(Duration(seconds: 5));
+ 
 // await Future.delayed(Duration(seconds: 5));
 void main() {
   count(5).forEach(print);
