@@ -2,6 +2,7 @@
 //  Typedef trong Dart được sử dụng để tạo danh tính (bí danh) do người dùng xác định cho một hàm 
 // chúng ta có thể sử dụng danh tính đó thay cho hàm trong mã chương trình. 
 //Khi chúng ta sử dụng typedef, chúng ta có thể xác định các tham số của hàm.
+//một typedef có thể được sử dụng như một con trỏ tham chiếu đến một hàm.
 // định nghĩa bí danh
 typedef TypeDef(int a, int b);
  
