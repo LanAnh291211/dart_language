@@ -1,53 +1,32 @@
-//trong vài trường hợp việc tạo 1 class có vẻ dư thừa, thay vì tạo 1 class ta có tạo 1 extension 
-//là một cách để thêm chức năng vào các thư viện hiện có
-// extension <'Tên Extension'> on <'Class cần extends'> {}
-extension Extensions on String {
-  String concat(String word) => '$this $word';
 
-  // DOCUMENTATION IS SUPPORTED: Concatenates two strings with a space in between.
-
-}
-class Pet {
-  Pet(this.name, this.id);
-  
-  int id;
+// Constructor là một hàm đặc biệt của lớp, được sử dụng để tạo ra đối tượng và khởi tạo các giá trị cho các trường (field).
+class Human {
+  String id;
   String name;
+  String age;
 
-  void sound() {
-    print('gaugau');
+  // Constructor:
+  Human(String n, String g, String c)
+      : id = n,
+        name = g,
+        age = c {
+    // (Constructor body)
+   
+  }
+
+  // Method:
+  void Introduce() {
+    print('Hi, ma so: $id,ten: $name, tuoi: $age');
   }
 }
-//class Cat kế thừa class Pet
-class Cat extends Pet {
-  // use the 'super' keyword to interact with 
-  // the super class of Cat
-  Cat(String name, int id) : super(name, id);
-  
-  void sound() {
-    print('meomeo');
-  }
-  
-}
 
-//class Dog kế thừa class Pet
-class Dog extends Pet {
-  
-  Dog(String name, int id) : super(name, id);
-  
-  void sound() {
-    print('grugru');
-  }
-  
-}
+void main()  {
+   Human lan = new Human('1', 'lan', '12'); // tạo đối tượng
+   lan.Introduce(); // Call method.
 
+   Human nga = Human('2', 'nga', '13'); // tạo đối tượng
+   nga.Introduce();
 
-main() {
-
-  String one = 'dog';
-  one.concat('cat');
-   var cat = Cat("Miu",1);
-  var dog = Dog("Nick", 2);
-  
-  dog.sound();
-  cat.sound();
+   var hong = Human('3', 'hong', '14'); // tạo đối tượng
+   hong.Introduce();
 }
